@@ -1,6 +1,8 @@
 # Тестовое задание
 
-## Для запуска проекта, пожалуйста, скачайте его, npm install, ng serve --open
+## Для запуска проекта, пожалуйста, скачайте его: 
+
+`npm install, ng serve --open`
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2.
 
