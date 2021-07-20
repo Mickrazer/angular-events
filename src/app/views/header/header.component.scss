@@ -1,0 +1,74 @@
+@import "src/app/app.component";
+
+.header{
+  &__nav{
+    padding: 16px 34px 16px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    svg{
+      margin: 0;
+    }
+    .blue-font svg{
+      margin-right: 8px;
+    }
+    h1{
+      display: none;
+    }
+    button:last-of-type{
+      display: none;
+    }
+  }
+
+  &__description{
+    padding: 14px 67px 0;
+  }
+  &__address{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: $basicFontSize;
+    line-height: $basicLineHeight;
+    color: $notActiveColor;
+    word-spacing: 6px;
+  }
+  &__title{
+    margin-top: 18px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 38px;
+    line-height: 40px;
+    color: $activeColor;
+    display: flex;
+    align-items: center;
+  }
+  &__logo{
+    margin-right: 18px;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .header{
+    &__nav{
+      padding: 14px 13px 11px 19px;
+      h1{
+        display: block;
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 18px;
+      }
+      button:last-of-type{
+        display: block;
+      }
+    }
+    &__description{
+      display: none;
+    }
+  }
+  .blue-font{
+    display: none;
+  }
+}

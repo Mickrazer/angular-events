@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "startDate": "12 дек, 9:00",
+    "name": "Страхование с заботой о клиенте",
+    "members": 12,
+    "coach": "",
+    "progress": 90
+  },
+  {
+    "id": 2,
+    "startDate": "12 дек, 9:00",
+    "name": "Главные правила продаж",
+    "members": 12,
+    "coach": "",
+    "progress": 90
+  },
+  {
+    "id": 3,
+    "startDate": "12 дек, 9:00",
+    "name": "Первичное обучение КС",
+    "members": 12,
+    "coach": "",
+    "progress": 90
+  },
+  {
+    "id": 4,
+    "startDate": "12 дек, 9:00",
+    "name": "Вторичное обучение КС",
+    "members": 12,
+    "coach": "",
+    "progress": 90
+  },
+  {
+    "id": 5,
+    "startDate": "12 дек, 9:00",
+    "name": "Вклады: теория и практика",
+    "members": 12,
+    "coach": "",
+    "progress": 90
+  }
+]

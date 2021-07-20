@@ -1,0 +1,379 @@
+<section class="main">
+  <div class="main__header">
+    <button class="button main__button not-active-font active">Групповое</button>
+    <button class="button main__button not-active-font">Индивидуальное</button>
+  </div>
+  <div class="filters">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M11.2399 10.1792C12.0297 9.16322 12.5 7.88653 12.5 6.5C12.5 3.18629 9.81371 0.5 6.5 0.5C3.18629 0.5 0.5 3.18629 0.5 6.5C0.5 9.81371 3.18629 12.5 6.5 12.5C7.88654 12.5 9.16323 12.0297 10.1792 11.2399L14.091 15.1516L15.1517 14.091L11.2399 10.1792ZM6.5 11C8.98528 11 11 8.98528 11 6.5C11 4.01472 8.98528 2 6.5 2C4.01472 2 2 4.01472 2 6.5C2 8.98528 4.01472 11 6.5 11Z"
+            fill="black" fill-opacity="0.38"/>
+    </svg>
+    <input type="text" placeholder="Поиск" class="filters__input">
+    <div class="filters__sort">
+      <h1 class="filter__title not-active-font">Сортировка</h1>
+      <select name="select" class="filter__select active-font">
+        <option value="value1" [defaultSelected]="true">По прогрессу обучения</option>
+        <option value="value2">Значение 2</option>
+        <option value="value3">Значение 3</option>
+      </select>
+    </div>
+    <div class="filter">
+      <div class="filter__selects">
+        <h1 class="filter__title not-active-font">Программа</h1>
+        <select name="select" class="filter__select active-font">
+          <option value="value1" [defaultSelected]="true">Все</option>
+          <option value="value2">Значение 2</option>
+          <option value="value3">Значение 3</option>
+        </select>
+      </div>
+      <div class="filter__selects">
+        <h1 class="filter__title not-active-font">Период</h1>
+        <select name="select" class="filter__select active-font">
+          <option value="value1" [defaultSelected]="true">Июнь 2019</option>
+          <option value="value2">Значение 2</option>
+          <option value="value3">Значение 3</option>
+        </select>
+      </div>
+      <div class="filter__selects">
+        <h1 class="filter__title not-active-font">Статус</h1>
+        <select name="select" class="filter__select active-font">
+          <option value="value1" [defaultSelected]="true">Все</option>
+          <option value="value2">Значение 2</option>
+          <option value="value3">Значение 3</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="filters" [class.disabled]="!settingsOpen">
+    <div class="filter">
+      <div class="filter__selects">
+        <h1 class="filter__title not-active-font">Категория</h1>
+        <select name="select" class="filter__select active-font">
+          <option value="value1" [defaultSelected]="true">Все</option>
+          <option value="value2">Значение 2</option>
+          <option value="value3">Значение 3</option>
+        </select>
+      </div>
+      <div class="filter__selects">
+        <h1 class="filter__title not-active-font">Длительность</h1>
+        <select name="select" class="filter__select active-font">
+          <option value="value1" [defaultSelected]="true">Все</option>
+          <option value="value2">Значение 2</option>
+          <option value="value3">Значение 3</option>
+        </select>
+      </div>
+      <div class="filter__selects">
+        <h1 class="filter__title not-active-font">Роли</h1>
+        <select name="select" class="filter__select active-font">
+          <option value="value1" [defaultSelected]="true">Все</option>
+          <option value="value2">Значение 2</option>
+          <option value="value3">Значение 3</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <h1 class="footer__counts not-active-font">{{eventsData.length}} сессии</h1>
+    <button class="button footer__counts blue-font" (click)="toggleSettings()">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M0.25 10.75V12.25H4.75V10.75H0.25ZM0.25 1.75V3.25H7.75V1.75H0.25ZM7.75 13.75V12.25H13.75V10.75H7.75V9.25H6.25V13.75H7.75ZM3.25 4.75V6.25H0.25V7.75H3.25V9.25H4.75V4.75H3.25ZM13.75 7.75V6.25H6.25V7.75H13.75ZM9.25 4.75H10.75V3.25H13.75V1.75H10.75V0.25H9.25V4.75Z"
+              fill="#1071FF"/>
+      </svg>
+      Настроить фильтр
+    </button>
+    <button class="button footer__counts not-active-font">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M9.5 1.5575L8.4425 0.5L5 3.9425L1.5575 0.5L0.5 1.5575L3.9425 5L0.5 8.4425L1.5575 9.5L5 6.0575L8.4425 9.5L9.5 8.4425L6.0575 5L9.5 1.5575Z"
+          fill="black" fill-opacity="0.54"/>
+      </svg>
+      Сбросить
+    </button>
+  </div>
+  <div class="list">
+    <table class="list__table">
+      <tr>
+        <th class="list__text not-active-font">Дата начала</th>
+        <th class="list__text not-active-font">Название</th>
+        <th class="list__text not-active-font">Участников</th>
+        <th class="list__text not-active-font">Тренер</th>
+        <th class="list__text not-active-font">Прогресс</th>
+      </tr>
+      <tr class="list__tr" *ngFor="let eventData of eventsData">
+        <td class="active-font padding-left">{{eventData.startDate}}</td>
+        <td class="active-font">{{eventData.name}}</td>
+        <td class="active-font">{{eventData.members}}</td>
+        <td class="active-font">{{eventData.coach}}</td>
+        <td class="list__context active-font"><img src="./assets/process.svg" alt="process">{{eventData.progress}} %
+        </td>
+        <td>
+          <button class="button">
+            <svg width="4" height="12" viewBox="0 0 4 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M1.99996 3.33335C2.73329 3.33335 3.33329 2.73335 3.33329 2.00002C3.33329 1.26669 2.73329 0.666687 1.99996 0.666687C1.26663 0.666687 0.666626 1.26669 0.666626 2.00002C0.666626 2.73335 1.26663 3.33335 1.99996 3.33335ZM1.99996 4.66669C1.26663 4.66669 0.666626 5.26669 0.666626 6.00002C0.666626 6.73335 1.26663 7.33335 1.99996 7.33335C2.73329 7.33335 3.33329 6.73335 3.33329 6.00002C3.33329 5.26669 2.73329 4.66669 1.99996 4.66669ZM1.99996 8.66669C1.26663 8.66669 0.666626 9.26669 0.666626 10C0.666626 10.7334 1.26663 11.3334 1.99996 11.3334C2.73329 11.3334 3.33329 10.7334 3.33329 10C3.33329 9.26669 2.73329 8.66669 1.99996 8.66669Z"
+                    fill="black" fill-opacity="0.54"/>
+            </svg>
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="popup" [class.disabled]="!popupOpen">
+    <div class="popup__content">
+      <div class="popup__header">
+        <h3 class="active-font popup__title">Планирование</h3>
+        <div class="popup__buttons">
+          <button class="button popup__button">
+            <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5.99991 9.17L1.82991 5L0.409912 6.41L5.99991 12L15.9999 2L14.5899 0.589996L5.99991 9.17Z"
+                    fill="#1071FF"/>
+            </svg>
+          </button>
+          <button class="button popup__button" (click)="togglePopupOpen()">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 1.41L10.59 0L6 4.59L1.41 0L0 1.41L4.59 6L0 10.59L1.41 12L6 7.41L10.59 12L12 10.59L7.41 6L12 1.41Z"
+                fill="black" fill-opacity="0.54"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="main__header popup__nav">
+        <button class="button main__button not-active-font" (click)="toggleBase()" [disabled]="isBase" [class.active]="isBase">Основное
+        </button>
+        <button class="button main__button not-active-font" (click)="toggleBase()" [disabled]="!isBase" [class.active]="!isBase">Участники
+        </button>
+      </div>
+      <section class="popup__main" [class.disabled]="!isBase">
+        <div class="popup__program">
+          <h1 class="filter__title not-active-font">Программа</h1>
+          <select name="select" class="filter__select active-font full-width">
+            <option value="value1" [defaultSelected]="true">Страхование с заботой о клиенте</option>
+            <option value="value2">Значение 2</option>
+            <option value="value3">Значение 3</option>
+          </select>
+        </div>
+        <div class="popup__events">
+          <h3 class="active-font popup__subtitle">Мероприятие, дата и время проведения</h3>
+          <div class="popup__filters">
+            <div>
+              <h1 class="not-active-font list__text">Мероприятие</h1>
+              <input type="text" placeholder="Главные правила продаж Тренинг"
+                     class="popup__input filters__input not-active-font">
+            </div>
+            <div class="filter popup__filter">
+              <div class="filter__selects">
+                <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M13.75 14C13.75 14.825 13.075 15.5 12.25 15.5H1.75C0.9175 15.5 0.25 14.825 0.25 14L0.2575 3.5C0.2575 2.675 0.9175 2 1.75 2H2.5V0.5H4V2H10V0.5H11.5V2H12.25C13.075 2 13.75 2.675 13.75 3.5V14ZM12.25 5H1.75V3.5H12.25V5ZM12.25 14V6.5H1.75V14H12.25ZM6.40533 12.7035L10.3107 8.79815L9.25 7.7375L6.40533 10.5822L5.06066 9.2375L4 10.2982L6.40533 12.7035Z"
+                        fill="black" fill-opacity="0.38"/>
+                </svg>
+                <h2 class="filter__title not-active-font">Дата</h2>
+                <input type="date" class="filter__select active-font">
+              </div>
+              <div class="filter__selects">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.9925 0.5C3.8525 0.5 0.5 3.86 0.5 8C0.5 12.14 3.8525 15.5 7.9925 15.5C12.14 15.5 15.5 12.14 15.5 8C15.5 3.86 12.14 0.5 7.9925 0.5ZM8 14C4.685 14 2 11.315 2 8C2 4.685 4.685 2 8 2C11.315 2 14 4.685 14 8C14 11.315 11.315 14 8 14ZM7.25 4.25H8.375V8.1875L11.75 10.19L11.1875 11.1125L7.25 8.75V4.25Z" fill="black" fill-opacity="0.54"/>
+                </svg>
+                <h2 class="filter__title not-active-font">Время</h2>
+                <select name="select" class="filter__select active-font">
+                  <option value="value1" [defaultSelected]="true">9:00</option>
+                  <option value="value2">Значение 2</option>
+                  <option value="value3">Значение 3</option>
+                </select>
+              </div>
+              <div class="filter__selects">
+                <img src="./assets/Man%20placeholder%2002.svg" alt="avatar">
+                <h2 class="filter__title not-active-font">Тренер</h2>
+                <select name="select" class="filter__select active-font">
+                  <option value="value1" [defaultSelected]="true">Сергей Ефремов</option>
+                  <option value="value2">Значение 2</option>
+                  <option value="value3">Значение 3</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="popup__filters">
+            <div>
+              <h1 class="not-active-font list__text">Мероприятие</h1>
+              <input type="text" placeholder="Главные правила продаж Тренинг"
+                     class="popup__input filters__input not-active-font">
+            </div>
+            <div class="filter popup__filter">
+              <div class="filter__selects">
+                <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M13.75 14C13.75 14.825 13.075 15.5 12.25 15.5H1.75C0.9175 15.5 0.25 14.825 0.25 14L0.2575 3.5C0.2575 2.675 0.9175 2 1.75 2H2.5V0.5H4V2H10V0.5H11.5V2H12.25C13.075 2 13.75 2.675 13.75 3.5V14ZM12.25 5H1.75V3.5H12.25V5ZM12.25 14V6.5H1.75V14H12.25ZM6.40533 12.7035L10.3107 8.79815L9.25 7.7375L6.40533 10.5822L5.06066 9.2375L4 10.2982L6.40533 12.7035Z"
+                        fill="black" fill-opacity="0.38"/>
+                </svg>
+                <h2 class="filter__title not-active-font">Дата</h2>
+                <select name="select" class="filter__select active-font">
+                  <option value="value1">28 Ноября</option>
+                  <option value="value2">Значение 2</option>
+                  <option value="value3">Значение 3</option>
+                </select>
+              </div>
+              <div class="filter__selects">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.9925 0.5C3.8525 0.5 0.5 3.86 0.5 8C0.5 12.14 3.8525 15.5 7.9925 15.5C12.14 15.5 15.5 12.14 15.5 8C15.5 3.86 12.14 0.5 7.9925 0.5ZM8 14C4.685 14 2 11.315 2 8C2 4.685 4.685 2 8 2C11.315 2 14 4.685 14 8C14 11.315 11.315 14 8 14ZM7.25 4.25H8.375V8.1875L11.75 10.19L11.1875 11.1125L7.25 8.75V4.25Z" fill="black" fill-opacity="0.54"/>
+                </svg>
+                <h2 class="filter__title not-active-font">Время</h2>
+                <select name="select" class="filter__select active-font">
+                  <option value="value1">9:00</option>
+                  <option value="value2">Значение 2</option>
+                  <option value="value3">Значение 3</option>
+                </select>
+              </div>
+              <div class="filter__selects">
+                <img src="./assets/Man%20placeholder%2002.svg" alt="avatar">
+                <h2 class="filter__title not-active-font">Тренер</h2>
+                <select name="select" class="filter__select active-font">
+                  <option value="value1">Сергей Ефремов</option>
+                  <option value="value2">Значение 2</option>
+                  <option value="value3">Значение 3</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="popup__filters">
+            <div>
+              <h1 class="not-active-font list__text">Мероприятие</h1>
+              <input type="text" placeholder="Главные правила продаж Тренинг"
+                     class="popup__input filters__input not-active-font">
+            </div>
+            <div class="filter popup__filter">
+              <div class="filter__selects">
+                <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M13.75 14C13.75 14.825 13.075 15.5 12.25 15.5H1.75C0.9175 15.5 0.25 14.825 0.25 14L0.2575 3.5C0.2575 2.675 0.9175 2 1.75 2H2.5V0.5H4V2H10V0.5H11.5V2H12.25C13.075 2 13.75 2.675 13.75 3.5V14ZM12.25 5H1.75V3.5H12.25V5ZM12.25 14V6.5H1.75V14H12.25ZM6.40533 12.7035L10.3107 8.79815L9.25 7.7375L6.40533 10.5822L5.06066 9.2375L4 10.2982L6.40533 12.7035Z"
+                        fill="black" fill-opacity="0.38"/>
+                </svg>
+                <h2 class="filter__title not-active-font">Дата</h2>
+                <select name="select" class="filter__select active-font">
+                  <option value="value1">28 Ноября</option>
+                  <option value="value2">Значение 2</option>
+                  <option value="value3">Значение 3</option>
+                </select>
+              </div>
+              <div class="filter__selects">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M7.9925 0.5C3.8525 0.5 0.5 3.86 0.5 8C0.5 12.14 3.8525 15.5 7.9925 15.5C12.14 15.5 15.5 12.14 15.5 8C15.5 3.86 12.14 0.5 7.9925 0.5ZM8 14C4.685 14 2 11.315 2 8C2 4.685 4.685 2 8 2C11.315 2 14 4.685 14 8C14 11.315 11.315 14 8 14ZM7.25 4.25H8.375V8.1875L11.75 10.19L11.1875 11.1125L7.25 8.75V4.25Z" fill="black" fill-opacity="0.54"/>
+                </svg>
+                <h2 class="filter__title not-active-font">Время</h2>
+                <select name="select" class="filter__select active-font">
+                  <option value="value1">9:00</option>
+                  <option value="value2">Значение 2</option>
+                  <option value="value3">Значение 3</option>
+                </select>
+              </div>
+              <div class="filter__selects">
+                <img src="./assets/Man%20placeholder%2002.svg" alt="avatar">
+                <h2 class="filter__title not-active-font">Тренер</h2>
+                <select name="select" class="filter__select active-font">
+                  <option value="value1">Сергей Ефремов</option>
+                  <option value="value2">Значение 2</option>
+                  <option value="value3">Значение 3</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="popup__events">
+          <h3 class="active-font popup__subtitle">Условия записи по коду</h3>
+          <div class="member__user">
+            <input type="radio" id="cod" checked>
+            <label for="cod" class="active-font">Не использовать код доступа</label>
+          </div>
+          <div class="member__user">
+            <input type="radio" id="registration">
+            <label for="registration" class="not-active-font">Требовать регистрацию</label>
+          </div>
+          <div class="member__user">
+            <input type="radio" id="fullName">
+            <label for="fullName" class="not-active-font">Запросить только имя и фамилию</label>
+          </div>
+          <div class="member__user">
+            <input type="radio" id="nothing">
+            <label for="nothing" class="not-active-font">Не требовать регистрацию, имя и фамилию</label>
+          </div>
+        </div>
+      </section>
+      <section class="member" [class.disabled]="isBase">
+        <div class="member__available">
+          <h3 class="active-font popup__subtitle">Доступные участники</h3>
+          <div class="filter member__filter">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M11.2399 10.1792C12.0297 9.16322 12.5 7.88653 12.5 6.5C12.5 3.18629 9.81371 0.5 6.5 0.5C3.18629 0.5 0.5 3.18629 0.5 6.5C0.5 9.81371 3.18629 12.5 6.5 12.5C7.88654 12.5 9.16323 12.0297 10.1792 11.2399L14.091 15.1516L15.1517 14.091L11.2399 10.1792ZM6.5 11C8.98528 11 11 8.98528 11 6.5C11 4.01472 8.98528 2 6.5 2C4.01472 2 2 4.01472 2 6.5C2 8.98528 4.01472 11 6.5 11Z"
+                    fill="black" fill-opacity="0.38"/>
+            </svg>
+            <input type="text" placeholder="Поиск" class="filters__input member__input">
+            <div class="filter__selects">
+              <h1 class="filter__title not-active-font">Группа</h1>
+              <select name="select" class="filter__select active-font">
+                <option value="value1" [defaultSelected]="true">Администрирование</option>
+                <option value="value2">Значение 2</option>
+                <option value="value3">Значение 3</option>
+              </select>
+            </div>
+            <div class="filter__selects">
+              <h1 class="filter__title not-active-font">Должность</h1>
+              <select name="select" class="filter__select active-font">
+                <option value="value1" [defaultSelected]="true">Менеджер по персон...</option>
+                <option value="value2">Значение 2</option>
+                <option value="value3">Значение 3</option>
+              </select>
+            </div>
+            <div class="filter__selects">
+              <h1 class="filter__title not-active-font">Стаж</h1>
+              <select name="select" class="filter__select active-font">
+                <option value="value1" [defaultSelected]="true">3-10 лет</option>
+                <option value="value2">Значение 2</option>
+                <option value="value3">Значение 3</option>
+              </select>
+            </div>
+          </div>
+          <div class="footer  member__footer">
+            <h1 class="footer__counts not-active-font">32 пользователя</h1>
+            <button class="button footer__counts blue-font">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M0.25 10.75V12.25H4.75V10.75H0.25ZM0.25 1.75V3.25H7.75V1.75H0.25ZM7.75 13.75V12.25H13.75V10.75H7.75V9.25H6.25V13.75H7.75ZM3.25 4.75V6.25H0.25V7.75H3.25V9.25H4.75V4.75H3.25ZM13.75 7.75V6.25H6.25V7.75H13.75ZM9.25 4.75H10.75V3.25H13.75V1.75H10.75V0.25H9.25V4.75Z"
+                      fill="#1071FF"/>
+              </svg>
+              Настроить
+            </button>
+            <button class="button footer__counts not-active-font">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M9.5 1.5575L8.4425 0.5L5 3.9425L1.5575 0.5L0.5 1.5575L3.9425 5L0.5 8.4425L1.5575 9.5L5 6.0575L8.4425 9.5L9.5 8.4425L6.0575 5L9.5 1.5575Z"
+                  fill="black" fill-opacity="0.54"/>
+              </svg>
+              Сбросить
+            </button>
+          </div>
+          <div class="member__users">
+            <div class="member__user">
+              <input type="checkbox" id="allUsers">
+              <label for="allUsers" class="active-font">Все пользователи</label>
+            </div>
+            <div class="member__user" *ngFor="let user of usersData">
+              <input type="checkbox" id="{{user.id}}">
+              <label for="{{user.id}}" class="active-font member__label">{{user.fullName}}</label>
+            </div>
+          </div>
+        </div>
+        <div class="member__all member__available">
+          <h3 class="active-font popup__subtitle">Участники мероприятия</h3>
+          <div class="member__block">
+            <img src="./assets/drag%60n%60drop.svg" alt="dragAndDrop">
+            <h3 class="not-active-font">Наполните группу, перетаскивая участников из списка доступных в левой
+              колонке</h3>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
