@@ -63,7 +63,7 @@ $basicLineHeight: 16px;
   display: none !important;
 }
 .active{
-  border-bottom: 1px solid $blueColor;
+  border-bottom: 2px solid $blueColor !important;
   color: $activeColor;
 }
 .blue-font{

@@ -12,6 +12,7 @@
   &__button {
     border-radius: 0;
     padding: 0 0 8px;
+    border-bottom: 2px solid transparent;
   }
 
   &__button:hover {
@@ -35,6 +36,9 @@
   display: flex;
   align-items: flex-end;
   padding: 0 8px;
+  opacity: 1;
+  visibility: visible;
+  transition: all .3s ease-out;
 
   svg {
     position: absolute;
@@ -52,6 +56,15 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     margin-right: 30px;
   }
+
+}
+
+.filter__close{
+  margin: 0;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s ease-out;
 
 }
 
@@ -220,6 +233,15 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .4s, visibility .4s;
+
+  &__open{
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .4s, visibility .4s;
+  }
 
   &__content {
     width: 67vw;
@@ -522,6 +544,7 @@
     }
 
     &__tr:hover {
+
       background: rgba(0, 0, 0, 0.02);
 
       button {

@@ -45,7 +45,7 @@
       </div>
     </div>
   </div>
-  <div class="filters" [class.disabled]="!settingsOpen">
+  <div class="filters" [class.filter__close]="!settingsOpen">
     <div class="filter">
       <div class="filter__selects">
         <h1 class="filter__title not-active-font">Категория</h1>
@@ -120,7 +120,7 @@
       </tr>
     </table>
   </div>
-  <div class="popup" [class.disabled]="!popupOpen">
+  <div class="popup" [class.popup__open]="popupOpen">
     <div class="popup__content">
       <div class="popup__header">
         <h3 class="active-font popup__title">Планирование</h3>
